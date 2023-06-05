@@ -1,4 +1,4 @@
-//
+// 
 // tasks.scss
 //
 
@@ -9,9 +9,8 @@
 }
 
 .tasks {
-    display: inline-flex;
-    min-width: 22rem;
-    height: 15rem;
+    display: inline-block;
+    width: 22rem;
     padding: 0 1rem 1rem 1rem;
     border: 1px solid $gray-200;
     vertical-align: top;
@@ -23,16 +22,10 @@
     }
 
     .card {
-        margin-inline-start: 0.2rem;
+        white-space: normal;
         margin-top: 1rem;
-        height: 15rem;
     }
-    .card-descripcion{
-      display: block;
-      padding: 1rem 1.25rem;
-      width: 16rem;
 
-    }
     .task-header {
         background-color: $gray-100;
         padding: 1rem;
@@ -43,7 +36,7 @@
 .task-list-items {
     min-height: 100px;
     position: relative;
-
+    
     &:before {
         content: "No Tasks";
         position: absolute;

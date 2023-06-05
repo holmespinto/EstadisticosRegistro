@@ -21,7 +21,7 @@ const ActionColumn = ({ row }) => {
     toggle,
     setOpen,
     setItemsUpdate,
-    open, itemsmenuprincipal
+    open, tipo
   } = useContext(DashboardContext);
    const toggleSignUp = (id) => {
     let permiso = sessionStorage.getItem('PERMISO');
@@ -52,7 +52,7 @@ const ActionColumn = ({ row }) => {
     <React.Fragment>
       <BtnSeccionAction obj={obj}>
       <FormUpdate
-          title={`FORMULARIO PARA LA EDICION DE ${itemsmenuprincipal?.toUpperCase()}`}
+          title={`FORMULARIO PARA LA EDICION DE ${tipo?.toUpperCase()}`}
           validated={validated}
         />
         </BtnSeccionAction>
@@ -70,6 +70,7 @@ const Usuarios = (props) => {
   const datos = itemsAdminUsuarios?.data?.auteurs || [];
   const roles = itemsAdminUsuarios?.data?.roles || [];
 
+ // console.log('Usuarios',datos)
   const columns = [
     {
       Header: 'ID',

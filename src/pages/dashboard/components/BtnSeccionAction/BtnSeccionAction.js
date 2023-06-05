@@ -6,7 +6,7 @@ import BtnLink from "../BtnLink";
 const BtnSeccionAction = (props,children) => {
 
   const isbtnLink = props?.obj?.isbtnLink|| 'N';
-  const itemsmenuprincipal = props?.obj?.itemsmenuprincipal || '';
+  const tipo = props?.obj?.tipo || '';
   const descripcionbtnLink = props?.obj?.descripcionbtnLink || '';
   const descripcionbtnaction = props?.obj?.descripcionbtnaction || '';
   const titulobtnLink =props?.obj?.titulobtnLink || '';
@@ -54,7 +54,7 @@ const BtnSeccionAction = (props,children) => {
         <Pagination.Item>
         <BtnLink
             permisos={'S'}
-            key={`${itemsmenuprincipal}_${props?.obj?.row}`}
+            key={`${tipo}_${props?.obj?.row}`}
             row={props?.obj?.row}
             url={urlbtnLink}
             titulo={`${titulobtnLink}`}

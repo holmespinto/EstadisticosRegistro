@@ -176,10 +176,10 @@ const Table = (props: TableProps): React$Element<React$FragmentType> => {
                 />
             )}</div>
                 {isVisible && (<>
-                <div class="col-2">
+                <div className="col-2">
                 <ButtonExportar numtable={table}/>
                 </div>
-                <div class="col-2 p-2">
+                <div className="col-2 p-2">
                 <PdfComponent nombre={table}/>
                 </div></>)}
             </div>

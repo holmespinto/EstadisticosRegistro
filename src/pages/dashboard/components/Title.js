@@ -8,13 +8,13 @@ import { DashboardContext } from '../../../layouts/context/DashboardContext';
  * PageTitle
  */
 const Title = ()=> {
-  const {itemUrl,itemsmenuprincipal} = useContext(DashboardContext)
+  const {itemUrl,tipo} = useContext(DashboardContext)
       const breadCrumbItems=
         [
           // eslint-disable-next-line no-undef
-          { label: itemsmenuprincipal.length===0 ?'Bienvenidos':itemUrl.toUpperCase()+' / '+itemsmenuprincipal.toUpperCase(), path: '/'+itemsmenuprincipal.toUpperCase()+'/'+itemUrl.toUpperCase().replace('/', '')+ '/', active: true },
+          { label: tipo.length===0 ?'Bienvenidos':itemUrl.toUpperCase()+' / '+tipo.toUpperCase(), path: '/'+tipo.toUpperCase()+'/'+itemUrl.toUpperCase().replace('/', '')+ '/', active: true },
           // eslint-disable-next-line no-undef
-          {title:itemsmenuprincipal.length===0 ?'Bienvenidos, para comenzar seleccione uno de los items del menu principal':itemsmenuprincipal.toUpperCase().replace('/', '')+'-' + itemUrl.toUpperCase().replace('/', '')}
+          {title:tipo.length===0 ?'Bienvenidos, para comenzar seleccione uno de los items del menu principal':tipo.toUpperCase().replace('/', '')+'-' + itemUrl.toUpperCase().replace('/', '')}
         ]
     return (
         <Row>

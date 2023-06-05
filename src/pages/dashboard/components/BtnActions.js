@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 
 const BtnActions = (props) => {
-  const {itemUrl,itemsmenuprincipal} = useContext(DashboardContext);
+  const {itemUrl,tipo} = useContext(DashboardContext);
   const popover = (
     <Popover id={props.key}>
       <Popover.Header as="h3">{props.titulo}</Popover.Header>
@@ -16,7 +16,7 @@ const BtnActions = (props) => {
   let Ids = localStorage.getItem('Ids');
   const idUrls = JSON.parse(Ids);
   const url = `?p=${idUrls?.p}&q=${idUrls?.q}`;
-  const urlb = `/dashboard/${itemUrl}/${itemsmenuprincipal}`;
+  const urlb = `/dashboard/${itemUrl}/${tipo}`;
   return (
         <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={popover} key={props.key}>
           {

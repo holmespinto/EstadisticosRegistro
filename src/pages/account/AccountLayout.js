@@ -47,7 +47,7 @@ const AccountLayout = ({ bottomLinks, children }: AccountLayoutProps): React$Ele
                 </Container>
             </div>
             <footer className="footer footer-alt">
-              {t('ELECTRICITY-Sistema Electricity NG2')}<br/>
+              {t('SIESCOR v.1')}<br/>
               {t('Universidad Popular del Cesar')}
             </footer>
 

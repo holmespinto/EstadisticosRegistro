@@ -21,7 +21,7 @@ const Register = (props): React$Element<React$FragmentType> => {
     accion: props?.accion,
     opcion: props?.opcion,
     tipo: props?.tipo,
-    entidad:'v1',
+    entidad:'v3',
     id: props?.usuario?.length===1?props?.usuario[0]?.id:'0',
   }]);
   const { t } = useTranslation();

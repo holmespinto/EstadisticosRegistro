@@ -5,7 +5,7 @@ import { DashboardContext } from '../../../../../layouts/context/DashboardContex
 /* custon FormAdd */
 const FormAdd = (props) => {
 
-  const { itemUrl, itemsmenuprincipal,itemsUpdate } = useContext(DashboardContext);
+  const { itemUrl, tipo,itemsUpdate } = useContext(DashboardContext);
   /*
   let permiso = sessionStorage.getItem('Categorias');
   const TipoCategoria = JSON.parse(permiso);
@@ -27,7 +27,7 @@ const FormAdd = (props) => {
     <React.Fragment>
       <Fields
         accion={itemUrl}
-        tipo={itemsmenuprincipal}
+        tipo={tipo}
         title={props.title}
         validated={props.validated}
         opcion={'add'}

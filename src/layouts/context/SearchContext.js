@@ -5,7 +5,7 @@ const api = new APICore();
 const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
-  const { itemsmenu,itemsmenuprincipal, itemUrl,setLoading,consultData} = useContext(DashboardContext);
+  const { itemsmenu,tipo, itemUrl,setLoading,consultData} = useContext(DashboardContext);
   const [itemsForm, setItemsForm] = useState([{}]);
   const [itemsProgramas, setProgramas] = useState([]);
   const [itemPrograma, setItemPrograma] = useState([]);
@@ -21,13 +21,13 @@ const onItemSedes = useCallback(
               programa: arg.programa ? arg.programa : arg.programa,
               periodo: arg.periodo ? arg.periodo : arg.periodo,
               etiqueta: itemsmenu,
-              itemsmenuprincipal: itemsmenuprincipal,
+              itemsmenuprincipal: tipo,
               itemUrl: itemUrl,
           };
           //console.log(newItems)
           items.push(newItems);
           setItemsForm(items);
-          const url = `accion=programas&opcion=consulta&etiqueta=${itemsmenu}&sede=${date.target.value}&table=programas&datable=${itemsmenuprincipal}`;
+          const url = `accion=programas&opcion=consulta&etiqueta=${itemsmenu}&sede=${date.target.value}&table=programas&datable=${tipo}`;
           const respuesta = api.sendRequestData(`${url}`);
           respuesta.then(function (resp) {
               if (resp?.length > 0) {
@@ -36,7 +36,7 @@ const onItemSedes = useCallback(
           });
       }
   },
-  [itemsmenu, setProgramas, itemsmenuprincipal, itemUrl]
+  [itemsmenu, setProgramas, tipo, itemUrl]
 );
 
 const onItemPeriodo = useCallback(
@@ -49,12 +49,12 @@ const onItemPeriodo = useCallback(
               programa: arg.programa ? arg.programa : arg.programa,
               periodo: date.target.value ? date.target.value : arg.periodo,
               etiqueta: itemsmenu,
-              itemsmenuprincipal: itemsmenuprincipal,
+              itemsmenuprincipal: tipo,
               itemUrl: itemUrl,
           };
           items.push(newItems);
           setItemsForm(items);
-          const url = `accion=periodos&opcion=consulta&programa=${itemPrograma}&datable=${itemsmenuprincipal}`;
+          const url = `accion=periodos&opcion=consulta&programa=${itemPrograma}&datable=${tipo}`;
           const respuesta = api.sendRequestData(`${url}`);
           respuesta.then(function (resp) {
               if (resp?.length > 0) {
@@ -63,7 +63,7 @@ const onItemPeriodo = useCallback(
           });
       }
   },
-  [itemsmenu, itemsmenuprincipal, itemUrl, itemPrograma]
+  [itemsmenu, tipo, itemUrl, itemPrograma]
 );
 
 const onItemProgramas = useCallback(
@@ -76,7 +76,7 @@ const onItemProgramas = useCallback(
               programa: date?.target.value ? date?.target.value : arg?.programa,
               periodo: arg.periodo ? arg.periodo : arg.periodo,
               etiqueta: itemsmenu,
-              table: itemsmenuprincipal,
+              table: tipo,
               itemUrl: itemUrl,
           };
           //console.log(newItems)
@@ -89,7 +89,7 @@ const onItemProgramas = useCallback(
           );
       }
   },
-  [itemsmenu, itemsmenuprincipal, itemUrl]
+  [itemsmenu, tipo, itemUrl]
 );
 const onSelectFecha = useCallback(
   (arg, date) => {
@@ -101,7 +101,7 @@ const onSelectFecha = useCallback(
               fecha: date?.target.value ? date?.target.value : arg?.value,
               programa: itemsmenu,
               etiqueta: itemsmenu,
-              table: itemsmenuprincipal,
+              table: tipo,
               itemUrl: itemUrl,
           };
           //console.log(newItems)
@@ -109,11 +109,11 @@ const onSelectFecha = useCallback(
           setItemsForm(items);
           sessionStorage.setItem(
             'ITEM_PROGRAM',
-            JSON.stringify({ programa: itemsmenuprincipal, sede: arg?.sede ? arg.sede : arg?.sede })
+            JSON.stringify({ programa: tipo, sede: arg?.sede ? arg.sede : arg?.sede })
         );
       }
   },
-  [itemsmenu, itemsmenuprincipal, itemUrl]
+  [itemsmenu, tipo, itemUrl]
 );
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -124,7 +124,7 @@ const handleSubmit = (event) => {
   } else {
       const isLoading = false;
       setLoading(isLoading);
-      var itemUrl = document.getElementById('itemsmenuprincipal').value;
+      var itemUrl = document.getElementById('tipo').value;
       const datosfiles = [...itemsForm];
       const queryDatos = datosfiles[0]
           ? Object.keys(datosfiles[0])

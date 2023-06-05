@@ -17,7 +17,7 @@ const DashboardContext = createContext();
 const DashboardProvider = ({ children }) => {
 
   const [isLoading, setLoading] = useState(false);
-  const [itemsmenuprincipal, setitemsMenuPrincipal] = useState('');
+  const [tipo, setitemsMenuPrincipal] = useState('');
   const [itemUrl, setitemsUrl] = useState('');
   const [itemsQuery, setItemsQuery] = useState([]);
   const [signUpModal, setSignUpModal] = useState(false);
@@ -134,7 +134,7 @@ function deleteCookie(name) {
 
 
 //QUERY DE RESPUSTA DE CONSULTAS
-  const query = useCallback((itemUrl, itemsmenuprincipal, opcion) => {
+  const query = useCallback((itemUrl, tipo, opcion) => {
     setLoading(true);
     let varibles;
     let datos = opcion;
@@ -146,7 +146,7 @@ function deleteCookie(name) {
         : '';
       varibles = queryString;
     }
-    const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&${varibles}`;
+    const url = `accion=${itemUrl}&tipo=${tipo}&${varibles}`;
     const datosMaterial = api.sendRequestData(`${url}`);
     datosMaterial?.then(function (response) {
       try {
@@ -175,7 +175,7 @@ function deleteCookie(name) {
     if(localPermiso.delete){
     const estrategiaConfirmacion = new ConfirmacionEliminacionStrategy();
     estrategiaConfirmacion.confirmar(cel, (cel) => {
-      const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&opcion=delete&id=${cel}`;
+      const url = `accion=${itemUrl}&tipo=${tipo}&opcion=delete&id=${cel}`;
       const respuesta = api.sendRequestData(`${url}`);
       respuesta.then(function (resp) {
         Swal.fire('' + resp[0].menssage + '');
@@ -189,7 +189,7 @@ function deleteCookie(name) {
   }else{
     Swal.fire('USTED NO TIENE PERMISOS HABILITADOS PARA ESTA OPCION')
   }
-  }, [itemUrl, itemsmenuprincipal]);
+  }, [itemUrl, tipo]);
 
 
 
@@ -198,7 +198,7 @@ function deleteCookie(name) {
  const add = useCallback((cel,idProyecto) => {
   const estrategiaConfirmacion = new ConfirmacionAddStrategy();
   estrategiaConfirmacion.confirmar(cel, (cel) => {
-    const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&opcion=add_apu&idApu=${cel}&idProyecto=${idProyecto}`;
+    const url = `accion=${itemUrl}&tipo=${tipo}&opcion=add_apu&idApu=${cel}&idProyecto=${idProyecto}`;
     const respuesta = api.sendRequestData(`${url}`);
     respuesta.then(function (resp) {
       Swal.fire('' + resp[0].menssage + '');
@@ -209,13 +209,13 @@ function deleteCookie(name) {
         }, 5000);
       });
   });
-}, [itemUrl, itemsmenuprincipal]);
+}, [itemUrl, tipo]);
 
  //ACTULIZAR  APUS ASIGNADAS
  const update = useCallback((cel,idProyecto,valor) => {
   const estrategiaConfirmacion = new ConfirmacionUpdateStrategy();
   estrategiaConfirmacion.confirmar(cel, (cel) => {
-    const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&opcion=EditarProyecto&idApu=${cel}&idProyecto=${idProyecto}&valor=${valor}`;
+    const url = `accion=${itemUrl}&tipo=${tipo}&opcion=EditarProyecto&idApu=${cel}&idProyecto=${idProyecto}&valor=${valor}`;
     const respuesta = api.sendRequestData(`${url}`);
     respuesta.then(function (resp) {
       Swal.fire('' + resp[0].menssage + '');
@@ -226,13 +226,13 @@ function deleteCookie(name) {
         }, 5000);
       });
   });
-}, [itemUrl, itemsmenuprincipal]);
+}, [itemUrl, tipo]);
 
  //ACTULIZAR  APUS ASIGNADAS
  const borrar = useCallback((cel,idProyecto) => {
   const estrategiaConfirmacion = new ConfirmacionBorrarStrategy();
   estrategiaConfirmacion.confirmar(cel, (cel) => {
-    const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&opcion=delete_apu&idApu=${cel}&idProyecto=${idProyecto}`;
+    const url = `accion=${itemUrl}&tipo=${tipo}&opcion=delete_apu&idApu=${cel}&idProyecto=${idProyecto}`;
     const respuesta = api.sendRequestData(`${url}`);
     respuesta.then(function (resp) {
       Swal.fire('' + resp[0].menssage + '');
@@ -243,7 +243,7 @@ function deleteCookie(name) {
         }, 5000);
       });
   });
-}, [itemUrl, itemsmenuprincipal]);
+}, [itemUrl, tipo]);
 
 const pagesInSearch = () => {
   const query = window.location.hash;
@@ -269,7 +269,7 @@ const AdvertenciaLocalStorage = () => {
     setLoading,
     setitemsMenuPrincipal,
     isLoading,
-    itemsmenuprincipal,
+    tipo,
     itemUrl,
     eliminar,
     signUpModal, setSignUpModal,

@@ -3,19 +3,19 @@
 import { useEffect,useCallback, useContext } from 'react';
 import { PermisosContext } from '../layouts/context/PermisosProvider/PermisosProvider';
 
-export const usePermisos = (itemsmenuprincipal) => {
+export const usePermisos = (tipo) => {
   const { onPermisos,PERMISOS_USER } = useContext(PermisosContext);
-    const activePermiso = useCallback((itemsmenuprincipal) => {
-      //console.log('itemsmenuprincipal',itemsmenuprincipal)
-      onPermisos(itemsmenuprincipal)
+    const activePermiso = useCallback((tipo) => {
+      //console.log('tipo',tipo)
+      onPermisos(tipo)
     }, []);
 
     useEffect(() => {
       //setTimeout(function () {
-        activePermiso(itemsmenuprincipal)
+        activePermiso(tipo)
      // }, 2000);
 
-      }, [itemsmenuprincipal]);
+      }, [tipo]);
 
       return {
         "permisos":PERMISOS_USER,

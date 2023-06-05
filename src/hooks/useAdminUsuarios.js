@@ -14,7 +14,7 @@ export const useAdminUsuarios = () => {
 
 
 //QUERY DE RESPUSTA DE CONSULTAS
-const query = useCallback((itemUrl, itemsmenuprincipal, opcion) => {
+const query = useCallback((itemUrl, tipo, opcion) => {
   setLoading(true);
   setTimeout(function () {
   let varibles;
@@ -27,7 +27,7 @@ const query = useCallback((itemUrl, itemsmenuprincipal, opcion) => {
       : '';
     varibles = queryString;
   }
-  const url = `accion=${itemUrl}&tipo=${itemsmenuprincipal}&${varibles}`;
+  const url = `accion=${itemUrl}&tipo=${tipo}&${varibles}`;
   const datosMaterial = api.sendRequestData(`${url}`);
   datosMaterial?.then(function (response) {
     try {

@@ -4,7 +4,7 @@ import { DashboardContext } from '../../../../../layouts/context/DashboardContex
 /* custon FormAdd */
 const FormAdd = (props) => {
 
-  const { itemUrl, itemsmenuprincipal } = useContext(DashboardContext);
+  const { itemUrl, tipo } = useContext(DashboardContext);
 
   let role = localStorage.getItem('roles');
   const roles = JSON.parse(role);
@@ -13,7 +13,7 @@ const FormAdd = (props) => {
     <React.Fragment>
       <Fields
         accion={itemUrl}
-        tipo={itemsmenuprincipal}
+        tipo={tipo}
         title={props.title}
         validated={props.validated}
         opcion={'add'}
