@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
+
 //import classNames from 'classnames';
 
 import { getMenuItems } from '../helpers/menu';
@@ -15,13 +16,15 @@ import logoDarkSm from '../assets/images/logo_sm_dark.png';
 import logo from '../assets/images/logo.png';
 import profileImg from '../assets/images/users/avatar-1.jpg';
 
+
 type SideBarContentProps = {
-    hideUserProfile: boolean,
-    itemsMenuCallBack: void,
+    hideUserProfile: boolean
 };
 
 /* sidebar content */
-const SideBarContent = ({ hideUserProfile,itemsMenuCallBack }: SideBarContentProps) => {
+const SideBarContent = ({ hideUserProfile }: SideBarContentProps) => {
+  // eslint-disable-next-line no-undef
+
     return (
         <>
             {!hideUserProfile && (
@@ -32,8 +35,7 @@ const SideBarContent = ({ hideUserProfile,itemsMenuCallBack }: SideBarContentPro
                     </Link>
                 </div>
             )}
-
-            <AppMenu menuItems={getMenuItems()} itemsMenuCallBack={itemsMenuCallBack} />
+            <AppMenu menuItems={getMenuItems()}/>
             <div className="clearfix" />
         </>
     );
@@ -43,11 +45,10 @@ type LeftSidebarProps = {
     hideLogo: boolean,
     hideUserProfile: boolean,
     isLight: boolean,
-    isCondensed: boolean,
-    itemsMenuCallBack: void,
+    isCondensed: boolean
 };
 
-const LeftSidebar = ({ isCondensed, isLight, hideLogo, hideUserProfile, itemsMenuCallBack}: LeftSidebarProps): React$Element<any> => {
+const LeftSidebar = ({ isCondensed, isLight, hideLogo, hideUserProfile}: LeftSidebarProps): React$Element<any> => {
 
   const menuNodeRef: any = useRef(null);
 
@@ -64,6 +65,7 @@ const LeftSidebar = ({ isCondensed, isLight, hideLogo, hideUserProfile, itemsMen
             document.body.classList.remove('sidebar-enable');
 
         }
+
     };
 
     useEffect(() => {
@@ -106,7 +108,6 @@ const LeftSidebar = ({ isCondensed, isLight, hideLogo, hideUserProfile, itemsMen
                             menuClickHandler={() => {}}
                             isLight={isLight}
                             hideUserProfile={hideUserProfile}
-                            itemsMenuCallBack={itemsMenuCallBack}
                         />
                     </SimpleBar>
                 )}

@@ -41,6 +41,11 @@ const tabMatriculados = [
     text: 'En esta session puedes consultar por Género',
   },{
     id: 4,
+    title: 'Por Categorías',
+    icon: 'mdi mdi-calendar-search',
+    text: 'En esta session puedes consultar por Categorías',
+  },{
+    id: 5,
     title: 'Gráficas',
     icon: 'mdi mdi-chart-bar',
     text: 'En esta session puedes consultar las estadsticas',
@@ -101,6 +106,39 @@ const columItemsPrincipal = [
   },{
       Header: 'Periodo',
       accessor: 'periodo',
+      sort: true,
+  },{
+      Header: 'Total',
+      accessor: 'total',
+      sort: true,
+  },
+];
+const columFecha = [
+  {
+    Header: 'Sede',
+    accessor: 'sede',
+    sort: true,
+},
+  {
+      Header: 'Periodo',
+      accessor: 'periodo',
+      sort: true,
+  },
+  {
+      Header: 'Inscritos',
+      accessor: 'inscritos',
+      sort: false,
+  },{
+      Header: 'Admitidos',
+      accessor: 'admitidos',
+      sort: true,
+  },{
+      Header: 'Matriculados',
+      accessor: 'matriculados',
+      sort: true,
+  },{
+      Header: 'Graduados',
+      accessor: 'graduados',
       sort: true,
   },{
       Header: 'Total',
@@ -365,7 +403,8 @@ const colMatricEstracto = [
     sort: false,
 },
 ];
-export {tabItems,
+export {
+  tabItems,
   tabMatriculados,
   colMatricGenero,
   colMatricEstracto,
@@ -375,5 +414,6 @@ export {tabItems,
   columnsEstadistInscritos,
   columnsAdmitidos,
   sizePerPageList,
-  columItemsMatriculados
+  columItemsMatriculados,
+  columFecha
  };

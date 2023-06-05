@@ -54,36 +54,13 @@ const MENU_ITEMS = [{
           text: '5'
         },
         parentKey: 'programas',
-        children: [{
-            key: 'ds-doctorados',
-            label: 'Doctorados',
-            url: '/estadisticas_programas/matriculados/doctorados',
-            parentKey: 'matriculados',
-          },
-          {
-            key: 'ds-maestrias',
-            label: 'Maestrias',
-            url: 'estadisticas_programas/matriculados/maestrias',
-            parentKey: 'matriculados',
-          },
-          {
-            key: 'ds-especializaciones',
-            label: 'Especializaciones',
-            url: '/estadisticas_programas/matriculados/especializaciones',
-            parentKey: 'matriculados',
-          },
+        children: [
           {
             key: 'ds-pregrado',
-            label: 'Pregrado',
+            label: 'Todos',
             url: '/estadisticas_programas/matriculados/pregrado',
             parentKey: 'matriculados'
-          },
-          {
-            key: 'ds-tecnologos',
-            label: 'Tecnologos',
-            url: '/estadisticas_programas/matriculados/tecnologos',
-            parentKey: 'matriculados',
-          },
+          }
         ],
       },
       {
@@ -124,79 +101,24 @@ const MENU_ITEMS = [{
           },
         ],
       },
-    ],
-  },
-  {
-    key: 'estadisticas_fechas',
-    label: 'Estadísticas por Fechas',
-    isTitle: false,
-    children: [{
-        key: 'graduados',
-        label: 'Graduados',
-        isTitle: false,
-        icon: 'uil uil-graduation-hat',
-        badge: {
-          variant: 'success',
-          text: '1'
-        },
-        parentKey: 'estadisticas_fechas',
-        children: [{
-          key: 'ds-graduados',
-          label: 'Consultar todo los Programas',
-          url: '/estadisticas_fechas/graduados',
-          parentKey: 'graduados'
-        } ],
-      },
       {
-        key: 'matriculados',
-        label: 'Matriculados',
-        isTitle: false,
-        icon: 'uil uil-user-check',
-        badge: {
-          variant: 'success',
-          text: '1'
-        },
-        parentKey: 'estadisticas_fechas',
-        children: [{
-          key: 'ds-matriculados',
-          label: 'Consultar todo los Programas',
-          url: '/estadisticas_fechas/matriculados',
-          parentKey: 'matriculados'
-        } ],
-      },
-      {
-        key: 'admitidos',
-        label: 'Admitidos',
-        isTitle: false,
-        icon: 'uil uil-user-square',
-        badge: {
-          variant: 'success',
-          text: '1'
-        },
-        parentKey: 'estadisticas_fechas',
-        children: [{
-          key: 'ds-admitidos',
-          label: 'Consultar todo los Programas',
-          url: '/estadisticas_fechas/admitidos',
-          parentKey: 'admitidos'
-        }],
-      },
-      {
-        key: 'inscritos',
-        label: 'Inscritos',
+        key: 'totales',
+        label: 'Total General',
         isTitle: false,
         icon: 'uil uil-book-reader',
         badge: {
           variant: 'success',
           text: '1'
         },
-        parentKey: 'estadisticas_fechas',
-        children: [{
-          key: 'ds-inscritos',
-          label: 'Consultar todo los Programas',
-          url: '/estadisticas_fechas/inscritos',
-          parentKey: 'inscritos'
-        } ],
+        parentKey: 'programas',
+        children: [
+          {
+            key: 'ds-pregrado',
+            label: 'Por Años',
+            url: '/estadisticas_programas/por_fecha/general',
+            parentKey: 'totales'
+          },
+        ],
       },
     ],
   },

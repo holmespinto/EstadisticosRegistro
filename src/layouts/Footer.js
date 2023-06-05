@@ -13,9 +13,7 @@ const Footer = (): React$Element<any> => {
 
                         <Col md={6}>
                             <div className="text-md-end footer-links d-none d-md-block">
-                                <a href="/">Estudiantes</a>
-                                <a href="/">Docentes</a>
-                            </div>
+                                  </div>
                         </Col>
                     </Row>
                 </div>

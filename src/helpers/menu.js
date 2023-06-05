@@ -1,8 +1,14 @@
-import MENU_ITEMS from '../constants/menu';
+// eslint-disable-next-line no-unused-vars
+import React, { useContext} from 'react';
+import { MenuContext } from '../layouts/context/MenuContext';
+//import MENU_ITEMS from '../constants/menu';
+
+
 
 const getMenuItems = () => {
-    // NOTE - You can fetch from server and return here as well
-    return MENU_ITEMS;
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const {MENU_ITEMS_CONTEXT} = useContext(MenuContext);
+    return MENU_ITEMS_CONTEXT;
 };
 
 const findAllParent = (menuItems, menuItem) => {
@@ -29,4 +35,4 @@ const findMenuItem = (menuItems, menuItemKey) => {
     return null;
 };
 
-export { getMenuItems, findAllParent, findMenuItem };
+export {getMenuItems, findAllParent, findMenuItem };

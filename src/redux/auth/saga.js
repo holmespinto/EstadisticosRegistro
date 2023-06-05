@@ -28,7 +28,7 @@ function* login({ payload: { username, password } }) {
         setAuthorization(user['token']);
         yield put(authApiResponseSuccess(AuthActionTypes.LOGIN_USER, user));
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         yield put(authApiResponseError(AuthActionTypes.LOGIN_USER, error));
         api.setLoggedInUser(null);
         setAuthorization(null);
@@ -49,12 +49,10 @@ function* logout() {
     }
 }
 
-function* signup({ payload: { fullname, email, password } }) {
+function* signup({ payload: {datos} }) {
     try {
-        const response = yield call(signupApi, { fullname, email, password });
+        const response = yield call(signupApi, {datos});
         const user = response.data;
-        // api.setLoggedInUser(user);
-        // setAuthorization(user['token']);
         yield put(authApiResponseSuccess(AuthActionTypes.SIGNUP_USER, user));
     } catch (error) {
         yield put(authApiResponseError(AuthActionTypes.SIGNUP_USER, error));

@@ -11,7 +11,7 @@ const ButtonExportar = ({numtable}) => {
                     table={numtable}
                     filename={tablexls}
                     sheet={sheet}
-                    buttonText="Exportar as XLS"/>
+                    buttonText="XLS"/>
             </div>
      );
 };

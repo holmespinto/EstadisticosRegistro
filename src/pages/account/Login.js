@@ -55,8 +55,12 @@ const Login = (): React$Element<any> => {
     handle form submission
     */
     const onSubmit = (formData) => {
-
-        dispatch(loginUser(formData['username'], formData['password']));
+      sessionStorage.removeItem('PERMISO_ALL');
+      sessionStorage.removeItem('PERMISO');
+      sessionStorage.removeItem('ITEM_SELECT');
+      sessionStorage.removeItem('TiposCategorias');
+      localStorage.removeItem('menuNomina');
+      dispatch(loginUser(formData['username'], formData['password']));
     };
 
     return (
